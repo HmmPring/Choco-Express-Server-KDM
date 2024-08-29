@@ -1,7 +1,5 @@
 package dgu.choco_express.security.provider;
 
-import dgu.choco_express.exception.CommonException;
-import dgu.choco_express.exception.GlobalErrorCode;
 import dgu.choco_express.security.info.JwtUserInfo;
 import dgu.choco_express.security.info.UserPrincipal;
 import dgu.choco_express.security.service.CustomUserDetailService;
@@ -11,7 +9,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Slf4j

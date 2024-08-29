@@ -2,7 +2,6 @@ package dgu.choco_express.service;
 
 import dgu.choco_express.domain.refreshToken.RefreshToken;
 import dgu.choco_express.repository.RefreshTokenRepository;
-import dgu.choco_express.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class JwtService {
     private final RefreshTokenRepository refreshTokenRepository;
-    private final JwtUtil jwtUtil;
 
     @Transactional
     public void updateRefreshToken(Long userId, String refreshToken) {
