@@ -51,7 +51,7 @@ dependencies {
 
 task copyGitSubmodule(type: Copy) {
 	copy {
-		from './skeep-properties'
+		from './Choco-Express-BE-Properties'
 		include '*.yml'
 		into './src/main/resources'
 	}
