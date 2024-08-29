@@ -42,6 +42,6 @@ public class Oauth2SuccessHandler implements AuthenticationSuccessHandler {
 
         AuthenticationResponse.makeLoginSuccessResponse(response, domain, jwtDto, jwtUtil.getRefreshExpiration());
 
-        response.sendRedirect("http://" + domain);
+        response.sendRedirect("https://" + domain);
     }
 }
