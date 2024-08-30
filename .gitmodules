@@ -1,0 +1,3 @@
+[submodule "Choco-Express-BE-Properties"]
+	path = Choco-Express-BE-Properties
+	url = https://github.com/Choco-Express/Choco-Express-BE-Properties.git
