@@ -20,6 +20,11 @@ import java.io.IOException;
 public class JwtExceptionFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
+        String requestURI = request.getRequestURI();
+        String requestMethod = request.getMethod();
+
+        if (requestURI.matches("/api/box/\\d+") && "GET".equalsIgnoreCase(requestMethod))
+            return true;
         return Constants.NO_NEED_AUTH.contains(request.getRequestURI());
     }
 
