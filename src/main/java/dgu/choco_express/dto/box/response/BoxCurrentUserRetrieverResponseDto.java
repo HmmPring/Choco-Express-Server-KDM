@@ -1,7 +1,7 @@
 package dgu.choco_express.dto.box.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import dgu.choco_express.domain.Box.Box;
+import dgu.choco_express.domain.box.Box;
 import lombok.Builder;
 
 @Builder

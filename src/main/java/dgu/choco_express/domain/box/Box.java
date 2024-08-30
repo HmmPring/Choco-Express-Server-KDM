@@ -1,4 +1,4 @@
-package dgu.choco_express.domain.Box;
+package dgu.choco_express.domain.box;
 
 import dgu.choco_express.domain.global.BaseTimeEntity;
 import dgu.choco_express.domain.user.User;

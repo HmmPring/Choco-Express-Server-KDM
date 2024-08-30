@@ -1,6 +1,6 @@
 package dgu.choco_express.service.box;
 
-import dgu.choco_express.domain.Box.Box;
+import dgu.choco_express.domain.box.Box;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

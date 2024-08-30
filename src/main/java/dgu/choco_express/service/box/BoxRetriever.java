@@ -1,6 +1,6 @@
 package dgu.choco_express.service.box;
 
-import dgu.choco_express.domain.Box.Box;
+import dgu.choco_express.domain.box.Box;
 import dgu.choco_express.domain.user.User;
 import dgu.choco_express.exception.BoxErrorCode;
 import dgu.choco_express.exception.CommonException;

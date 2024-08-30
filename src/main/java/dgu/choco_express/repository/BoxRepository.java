@@ -1,6 +1,6 @@
 package dgu.choco_express.repository;
 
-import dgu.choco_express.domain.Box.Box;
+import dgu.choco_express.domain.box.Box;
 import dgu.choco_express.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
