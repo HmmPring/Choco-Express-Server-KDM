@@ -44,47 +44,17 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PROD_REPONAME }}:0.0.1
 
-  cd1:
+  cd:
     needs: [ci]
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Docker Image Pull And Container Run
+      - name: Connect Bastion Host And Run deploy.sh
         uses: appleboy/ssh-action@v1.0.0
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY_1 }}
-          host: ${{ secrets.SSH_HOST_1 }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           port: ${{ 22 }}
           script: |
-            sh /home/ubuntu/deploy.sh
-#
-#  cd2:
-#    needs: [ci]
-#    runs-on: ubuntu-20.04
-#
-#    steps:
-#      - name: Docker Image Pull And Container Run
-#        uses: appleboy/ssh-action@v1.0.0
-#        with:
-#          key: ${{ secrets.SSH_PRIVATE_KEY_2 }}
-#          host: ${{ secrets.SSH_HOST_2 }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          port: ${{ 22 }}
-#          script: |
-#            sh /home/ubuntu/deploy.sh
-#
-#  cd3:
-#    needs: [ci]
-#    runs-on: ubuntu-20.04
-#
-#    steps:
-#      - name: Docker Image Pull And Container Run
-#        uses: appleboy/ssh-action@v1.0.0
-#        with:
-#          key: ${{ secrets.SSH_PRIVATE_KEY_3 }}
-#          host: ${{ secrets.SSH_HOST_3 }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          port: ${{ 22 }}
-#          script: |
-#            sh /home/ubuntu/deploy.sh
+            sh /home/ubuntu/deploy/deploy.sh
