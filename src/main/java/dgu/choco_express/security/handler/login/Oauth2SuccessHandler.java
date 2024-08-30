@@ -4,7 +4,7 @@ import dgu.choco_express.dto.jwt.response.JwtDto;
 import dgu.choco_express.repository.UserRepository;
 import dgu.choco_express.security.info.AuthenticationResponse;
 import dgu.choco_express.security.info.UserPrincipal;
-import dgu.choco_express.service.JwtService;
+import dgu.choco_express.service.jwt.JwtService;
 import dgu.choco_express.util.JwtUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
