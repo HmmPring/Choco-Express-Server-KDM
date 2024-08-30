@@ -1,4 +1,4 @@
-package dgu.choco_express.service;
+package dgu.choco_express.service.jwt;
 
 import dgu.choco_express.domain.refreshToken.RefreshToken;
 import dgu.choco_express.repository.RefreshTokenRepository;

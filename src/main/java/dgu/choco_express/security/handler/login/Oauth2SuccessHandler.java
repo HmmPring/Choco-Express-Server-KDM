@@ -1,10 +1,9 @@
 package dgu.choco_express.security.handler.login;
 
 import dgu.choco_express.dto.jwt.response.JwtDto;
-import dgu.choco_express.repository.UserRepository;
 import dgu.choco_express.security.info.AuthenticationResponse;
 import dgu.choco_express.security.info.UserPrincipal;
-import dgu.choco_express.service.JwtService;
+import dgu.choco_express.service.jwt.JwtService;
 import dgu.choco_express.util.JwtUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,7 +24,6 @@ public class Oauth2SuccessHandler implements AuthenticationSuccessHandler {
     @Value("${server.domain}")
     private String domain;
     private final JwtUtil jwtUtil;
-    private final UserRepository userRepository;
     private final JwtService jwtService;
 
     @Override

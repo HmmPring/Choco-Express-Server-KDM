@@ -3,7 +3,7 @@ package dgu.choco_express.security.handler.logout;
 import dgu.choco_express.constant.Constants;
 import dgu.choco_express.exception.CommonException;
 import dgu.choco_express.exception.GlobalErrorCode;
-import dgu.choco_express.service.JwtService;
+import dgu.choco_express.service.jwt.JwtService;
 import dgu.choco_express.util.HeaderUtil;
 import dgu.choco_express.util.JwtUtil;
 import io.jsonwebtoken.Claims;
