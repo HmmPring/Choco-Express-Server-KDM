@@ -49,6 +49,23 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'ap-northeast-2'
+
+
+      - name: Add GitHub Actions IP
+        run: |
+          aws ec2 authorize-security-group-ingress \
+            --group-id ${{ secrets.SECURITY_GROUP_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+
       - name: Connect Bastion Host And Run deploy.sh
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -58,3 +75,11 @@ jobs:
           port: ${{ 22 }}
           script: |
             sh /home/ubuntu/deploy/deploy.sh
+
+      - name: Remove GitHub Actions IP
+        run: |
+          aws ec2 revoke-security-group-ingress \
+            --group-id ${{ secrets.SECURITY_GROUP_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32
