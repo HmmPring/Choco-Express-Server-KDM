@@ -12,6 +12,7 @@ public enum ChocoErrorCode implements ErrorCode {
     INVALID_CHOCO_NAME(HttpStatus.BAD_REQUEST, "CHOCO_003", "초코 작성자 이름이 비어있습니다."),
     CANT_CHOCO_RECURSIVE(HttpStatus.BAD_REQUEST, "CHOCO_004", "자기 자신에게 초코를 보낼 수 없습니다."),
     INVALID_PAGE_CHOCO(HttpStatus.BAD_REQUEST, "CHOCO_005", "유효하지 않은 페이지 넘버입니다."),
+    INVALID_ACCESS(HttpStatus.BAD_REQUEST, "CHOCO_006", "다른 유저는 접근할 수 없습니다."),
     ;
 
     private final HttpStatus status;

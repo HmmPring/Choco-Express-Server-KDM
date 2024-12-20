@@ -8,6 +8,7 @@ import dgu.choco_express.util.JwtUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -25,6 +26,8 @@ public class Oauth2SuccessHandler implements AuthenticationSuccessHandler {
     private String domain;
     private final JwtUtil jwtUtil;
     private final JwtService jwtService;
+    private final HttpSession session;
+
 
     @Override
     @Transactional
@@ -40,6 +43,13 @@ public class Oauth2SuccessHandler implements AuthenticationSuccessHandler {
 
         AuthenticationResponse.makeLoginSuccessResponse(response, domain, jwtDto, jwtUtil.getRefreshExpiration());
 
-        response.sendRedirect("https://" + domain);
+        String redirectUrl = (String) session.getAttribute("redirectUrl");
+
+        if (redirectUrl != null) {
+            session.removeAttribute("redirectUrl"); // 사용 후 세션에서 제거
+            response.sendRedirect(redirectUrl);
+        } else {
+            response.sendRedirect("https://" + domain);
+        }
     }
 }
